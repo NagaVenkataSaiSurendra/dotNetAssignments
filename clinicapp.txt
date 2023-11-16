@@ -1,0 +1,208 @@
+namespace ClinicHospital
+{
+    internal class Program
+    {
+
+        managedoctor managedoctor;
+        public Program()
+        {
+            managedoctor = new managedoctor();
+        }
+        void DisplayAdminMenu()
+        {
+            Console.WriteLine("1.Add Doctor");
+            Console.WriteLine("2.Modify Doctor experience");
+            Console.WriteLine("3.Modify Doctor phone number");
+            Console.WriteLine("4.Delete Doctor");
+            Console.WriteLine("0.EXIT");
+        }
+        void StartAdminActivities()
+        {
+            int choice;
+            do
+            {
+                DisplayAdminMenu();
+                choice = Convert.ToInt32(Console.ReadLine());
+                switch (choice)
+                {
+                    case 0:
+                        Console.WriteLine("BYE BYE.....!!!");
+                        break;
+                    case 1:
+                        managedoctor.getUserDetails();
+                        break;
+                    case 2:
+                        Updateexperience();
+                        break;
+                    case 3:
+                        Updatephonenumber();
+                        break;
+                    case 4:
+                        DeleteDoctor();
+                        break;
+                    default:
+                        Console.WriteLine("Invalid choice. Try again");
+                        break;
+                }
+            } while (choice != 0);
+        }
+        private void Updateexperience()
+        {
+            managedoctor.PrintdoctorDetails();
+            Console.WriteLine("Please enter the new experience");
+            int experience = Convert.ToInt32(Console.ReadLine());
+            var result = managedoctor.Updateexperience(experience);
+            if (result == true)
+            {
+                Console.WriteLine("Experience updated");
+                managedoctor.PrintdoctorDetails();
+            }
+            else
+                Console.WriteLine("Unable to update experience");
+        }
+        private void Updatephonenumber()
+        {
+            managedoctor.PrintdoctorDetails();
+            Console.WriteLine("Please enter the new phone number");
+            var phonenumber = Convert.ToInt32(Console.ReadLine());
+            var result = managedoctor.Updatephonenumber(phonenumber);
+            if (result == true)
+            {
+                Console.WriteLine("phone number updated");
+                managedoctor.PrintdoctorDetails();
+            }
+            else
+                Console.WriteLine("Unable to update phone number");
+        }
+        private void  DeleteDoctor()
+        {
+            managedoctor.PrintdoctorDetails();
+            if (managedoctor != null)
+            {
+              
+                Console.WriteLine("Doctor deleted");
+                
+            }
+           
+
+        }
+        static void Main(string[] args)
+        {
+            Console.WriteLine("welcome to the clinic");
+            Program clinic = new Program();
+            clinic.StartAdminActivities();
+        }
+
+    }
+}
+
+
+
+
+-----------------------------------------------------------
+
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ClinicHospital
+{
+    internal class doctor
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Qualifications { get; set; }
+        public int Experience { get; set; }
+        public double Fees { get; set; }
+        public double phonenumber { get; set; }
+        public doctor()
+        {
+            Experience = 0;
+            phonenumber = 1;
+        }
+        public doctor(int Id, string Name, string Qualifications, int Experience, double Fees, double
+        phonenumber)
+        {
+            Id = Id;
+            Name = Name;
+            Qualifications = Qualifications;
+            Experience = Experience;
+            Fees = Fees;
+            phonenumber = phonenumber;
+        }
+        public override string ToString()
+        {
+            return $"doctor Id : {Id}\ndoctor Name : {Name}\ndoctor Experience: {Experience}\ndoctor fees : Rs. { Fees}\n doctor phonenumber: { phonenumber}\n doctor fees: { Fees}\n ";
+
+
+    }
+    }
+}
+
+
+------------------------------------------------------------------------
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ClinicHospital
+{
+    internal class managedoctor
+    {
+        doctor doctor;
+        public managedoctor()
+        {
+            doctor = new doctor();
+        }
+        int generateId()
+        {
+            return new Random().Next(1, 100);
+        }
+        public void getUserDetails()
+        {
+            doctor.Id = generateId();
+            Console.WriteLine("Please enter the doctor name");
+            doctor.Name = Console.ReadLine();
+            Console.WriteLine("Please enter the doctor qualificatons");
+            doctor.Qualifications = Console.ReadLine();
+            Console.WriteLine("Please enter the doctor Experience");
+            doctor.Experience = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Please enter the fees of doctor");
+            doctor.Fees = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("please enter doctor phone number");
+            doctor.phonenumber = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("all the doctor details are generated\n");
+        }
+        public void PrintdoctorDetails()
+        {
+            Console.WriteLine(doctor);
+        }
+        public bool Updateexperience(int experience)
+        {
+            if (experience >= 0)
+            {
+                doctor.Experience = experience;
+                return true;
+                Console.WriteLine("experience updated");
+            }
+            return false;
+        }
+        public bool Updatephonenumber(int phonenumber)
+        {
+            if (phonenumber >= 0)
+            {
+                doctor.phonenumber = phonenumber;
+                return true;
+                Console.WriteLine("phonenumber updated");
+            }
+            return false;
+        }
+    }
+}
