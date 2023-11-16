@@ -1,0 +1,219 @@
+Sum of two numbers
+
+
+using System.Reflection.Metadata.Ecma335;
+using System.Threading.Channels;
+
+namespace FirstApp
+{
+    internal class Program
+    {
+        static void add()
+        {
+            int n1, n2; 
+            Console.WriteLine("Enter two numbers");
+            n1 = Convert.ToInt32(Console.ReadLine());
+            n2 = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine($"The sum of {n1} and {n2} is {n1 + n2}");
+        }
+        //static void Biggest()
+        //{
+        //    int n1, n2;
+        //    Console.WriteLine("Enter two numbers");
+        //    n1 = Convert.ToInt32(Console.ReadLine());
+        //    n2 = Convert.ToInt32(Console.ReadLine());
+        //    if(n1>n2)
+        //        Console.WriteLine(n1 + "is biggest");
+        //    else
+        //        Console.WriteLine(n2 + "is biggest");
+
+        //}
+        static void Main(string[] args)
+        {
+            add();
+            //Biggest();
+           
+           
+
+        }
+    }
+}
+
+
+
+
+Biggestof two numbers
+
+
+using System.Reflection.Metadata.Ecma335;
+using System.Threading.Channels;
+
+namespace FirstApp
+{
+    internal class Program
+    {
+        
+        static void Biggest()
+        {
+            int n1, n2;
+            Console.WriteLine("Enter two numbers");
+            n1 = Convert.ToInt32(Console.ReadLine());
+            n2 = Convert.ToInt32(Console.ReadLine());
+            if (n1 > n2)
+                Console.WriteLine(n1 + "is biggest");
+            else
+                Console.WriteLine(n2 + "is biggest");
+
+        }
+        static void Main(string[] args)
+        {
+           
+            Biggest();
+        }
+    }
+}
+
+
+Even or not 
+
+using System.Reflection.Metadata.Ecma335;
+using System.Threading.Channels;
+
+namespace FirstApp
+{
+    internal class Program
+    {
+        
+        static void Even()
+        {
+            int n1, n2;
+            Console.WriteLine("Enter two numbers");
+            n1 = Convert.ToInt32(Console.ReadLine());
+            //n2 = Convert.ToInt32(Console.ReadLine());
+            if (n1 %2==0)
+                Console.WriteLine(n1 + "is a even number");
+            else
+                Console.WriteLine(n1 + "is a odd number");
+
+        }
+        static void Main(string[] args)
+        {
+
+            Even();
+
+        }
+    }
+}
+
+prime or not
+
+
+using System.Reflection.Metadata.Ecma335;
+using System.Threading.Channels;
+
+namespace FirstApp
+{
+    internal class Program
+    {
+
+        static void prime()
+        {
+            int n1, n2,c=0;
+            Console.WriteLine("Enter number");
+            n1 = Convert.ToInt32(Console.ReadLine());
+            //n2 = Convert.ToInt32(Console.ReadLine());
+            for (n2 = 2; n2 < n1; n2++) { 
+
+                if (n1 % n2 == 0)
+                    c++;
+                
+        }
+            if (c> 0)
+                Console.WriteLine(n1 + "is not a prime number");
+            else
+                Console.WriteLine(n1 + "is a prime number");
+
+        }
+        static void Main(string[] args)
+        {
+
+            prime();
+
+        }
+    }
+}
+
+
+square
+
+
+using System.Reflection.Metadata.Ecma335;
+using System.Threading.Channels;
+
+namespace FirstApp
+{
+    internal class Program
+    {
+
+        static void square()
+        {
+            int n1,n2;
+            Console.WriteLine("Enter number");
+            n1 = Convert.ToInt32(Console.ReadLine());
+            //n2 = Convert.ToInt32(Console.ReadLine());
+            n2 = n1 * n1;
+            
+                Console.WriteLine("square of {n1} is "+ n2);
+           
+
+        }
+        static void Main(string[] args)
+        {
+
+            square();
+
+        }
+    }
+}
+
+
+Average
+
+using System.Reflection.Metadata.Ecma335;
+using System.Threading.Channels;
+
+namespace FirstApp
+{
+    internal class Program
+    {
+
+        static void avg()
+        {
+            int n1,n2,n3,n4,n5,n6,n7,n8,n9,n10;
+            Console.WriteLine("Enter 10 number");
+            n1 = Convert.ToInt32(Console.ReadLine());
+            n2 = Convert.ToInt32(Console.ReadLine());
+            n3 = Convert.ToInt32(Console.ReadLine());
+            n4 = Convert.ToInt32(Console.ReadLine());
+            n5 = Convert.ToInt32(Console.ReadLine());
+            n6 = Convert.ToInt32(Console.ReadLine());
+            n7 = Convert.ToInt32(Console.ReadLine());
+            n8 = Convert.ToInt32(Console.ReadLine());
+            n9 = Convert.ToInt32(Console.ReadLine());
+            n10 = Convert.ToInt32(Console.ReadLine());
+            int avg = (n1 + n2 + n3 + n4 + n5 + n6 + n7 + n8 + n9 + n10) / 10;
+            
+                Console.WriteLine("Average is "+ avg);
+           
+
+        }
+        static void Main(string[] args)
+        {
+
+            avg();
+
+        }
+    }
+}
+
+
